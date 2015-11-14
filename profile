@@ -4,11 +4,6 @@
 # see /usr/share/doc/bash/examples/startup-files for examples.
 # the files are located in the bash-doc package.
 #ensure our ssh-agent is running and that our keys are added
-eval `ssh-agent` > /dev/null
-keys=`ssh-add -l > /dev/null ; echo $?`
-if [[ $keys != "0" ]]; then
-    ssh-add
-fi
 
 #move on to .bashrc
 if [ -f ~/.bashrc ]; then

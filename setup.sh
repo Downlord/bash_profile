@@ -17,13 +17,13 @@ for file in $files; do
         unlink ~/.$file
     else
         if [ -f ~/.$file ]; then
-      if [ ! -d ~/.bash_profilebackup/$date ]; then
-               mkdir -p ~/.bash_profilebackup/$date
+      if [ ! -d ~/.bash_profile_backup/$date ]; then
+               mkdir -p ~/.bash_profile_backup/$date
             fi
       if [ ! -d ~/.bash_profile/ ]; then
           mkdir -p ~/.bash_profile/
             fi
-            echo "backing up ~/.$file to ~/.bash_profilebackup/$date/$file"
+            echo "backing up ~/.$file to ~/.bash_profile_backup/$date/$file"
             mv ~/.$file ~/.bash_profile_backup/$date/$file
         fi
     fi
@@ -32,8 +32,8 @@ for file in $files; do
 done
 
 if [ -d ~/.profile.d/ ]; then
-   if [ ! -d ~/.bash_profilebackup/$date ]; then
-      mkdir -p ~/.bash_profilebackup/$date
+   if [ ! -d ~/.bash_profile_backup/$date ]; then
+      mkdir -p ~/.bash_profile_backup/$date
    fi
    echo "backing up ~/.profile.d to ~/.bash_profile_backup/$date/profile.d"
    mv ~/.profile.d ~/.bash_profile_backup/$date/profile.d

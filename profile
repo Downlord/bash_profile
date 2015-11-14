@@ -3,6 +3,11 @@ if [ -f ~/.profile.`whoami` ]; then
     source ~/.profile.`whoami`
 fi
 
+#allow users to specify additional profiles from ~/.profile.d
+if [ -d ~/.profile.d/ ]; then
+   source ~/.profile.d/*
+fi
+
 #ensure our ssh-agent is running and that our keys are added
 eval `ssh-agent` > /dev/null
 keys=`ssh-add -l > /dev/null ; echo $?`

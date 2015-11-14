@@ -9,7 +9,8 @@ if [ -d ~/bash_profile/ ]; then
    cd ~/.bash_profile_source
 fi
 
-files="bash bash_profile bash_login bash_aliases bashrc profile bash_completion bash_logout profile.d"
+#files="bash bash_profile bash_login bash_aliases bashrc profile bash_completion bash_logout profile.d"
+files="bash_aliases"
 date=`date +"%Y%m%d"`
 
 for file in $files; do

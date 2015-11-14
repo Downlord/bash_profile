@@ -23,3 +23,11 @@ alias ktopic="/opt/kafka/bin/kafka-topics.sh --zookeeper $ZOOKEEPER_URI $@"
 alias ip_pub="facter -p ec2_public_ipv4"
 alias ip_priv="facter -p ipaddress"
 
+
+if [ -d ~/.profile.d ];then
+  for profile_found in ~/.profile.d/*sh
+  do
+    . $profile_found
+  done
+fi
+

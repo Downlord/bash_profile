@@ -4,6 +4,9 @@
 
 cd ~/
 if [ -d ~/bash_profile/ ]; then
+   if [ -d /.bash_profile_source ]; then
+      rm -rf ~/.bash_profile_source
+   fi
    echo self relocating to ~/.bash_profile_source >&2
    mv ~/bash_profile/ ~/.bash_profile_source
    cd ~/.bash_profile_source

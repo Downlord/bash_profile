@@ -8,8 +8,11 @@ for file in $files; do
         unlink ~/.$file
     else
         if [ -f ~/.$file ]; then
-            echo "backing up ~/.$file to ~/.$file.bak$date"
-            mv ~/.$file ~/.$file.bak$date
+	    if [ ! -d ~/.bash_profile/ ]; then
+	        mkdir -p ~/.bash_profile/
+            fi
+            echo "backing up ~/.$file to ~/.bash_profile/$file.bak$date"
+            mv ~/.$file ~/.bash_profile/$file.bak$date
         fi
     fi
     echo "symlinking $PWD/$file to ~/.$file"

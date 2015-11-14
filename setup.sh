@@ -38,8 +38,8 @@ if [ -d ~/.profile.d/ ]; then
    fi
    echo "backing up ~/.profile.d to ~/.bash_profile_backup/$date/profile.d" >&2
    mv ~/.profile.d ~/.bash_profile_backup/$date/profile.d
-   ln -s ~/.bash_profile_source/profile.d ~/.profile.d
 fi
+ln -s ~/.bash_profile_source/profile.d ~/.profile.d
 
 if [ -d ~/bin ]
   then cp -d ~/.bash_profile_source/bin/* ~/bin

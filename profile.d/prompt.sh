@@ -13,11 +13,12 @@ esac
 if [ -z "$HOSTSTAGE" ]; then
         export PS1="${SCREENTITLE}\[\e[1;34m\][\[\e[0;34m\]\h\[\e[1;34m\]]\[\e[1;34m\][\[\e[0;32m\]\w\[\e[1;34m\]]> \[\e[0m\]"
 else
+	export SHORTSTAGE=${HOSTSTAGE/uction/}
         export PROMPT_COMMAND='echo -ne "\033]0;${HOSTNAME}-${HOSTSTAGE}\007"'
-        if [ "$HOSTSTAGE" = "preprod" ]; then
-                export PS1='\e[1;34m[\e[0;34m\h\e[1;34m]\e[1;34m[\e[0;32m'${HOSTSTAGE}'\e[1;34m]> \e[0m'
+        if [ "$HOSTSTAGE" = "preproduction" ]; then
+                export PS1='\e[1;34m[\e[0;34m\h\e[1;34m]\e[1;34m[\e[0;32m'${SHORTSTAGE}'\e[1;34m]> \e[0m'
         else
-                export PS1='\e[1;34m[\e[0;34m\h\e[1;34m]\e[1;34m[\e[0;31m'${HOSTSTAGE}'\e[1;34m]> \e[0m'
+                export PS1='\e[1;34m[\e[0;34m\h\e[1;34m]\e[1;34m[\e[0;31m'${SHORTSTAGE}'\e[1;34m]> \e[0m'
         fi
 fi
 

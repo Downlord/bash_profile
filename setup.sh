@@ -4,7 +4,7 @@
 
 cd ~/
 if [ -d ~/bash_profile/ ]; then
-   echo self relocating to ~/.bash_profile_source
+   echo self relocating to ~/.bash_profile_source >&2
    mv ~/bash_profile/ ~/.bash_profile_source
    cd ~/.bash_profile_source
 fi
@@ -23,25 +23,25 @@ for file in $files; do
       if [ ! -d ~/.bash_profile/ ]; then
           mkdir -p ~/.bash_profile/
             fi
-            echo "backing up ~/.$file to ~/.bash_profile_backup/$date/$file"
+            echo "backing up ~/.$file to ~/.bash_profile_backup/$date/$file" >&2
             mv ~/.$file ~/.bash_profile_backup/$date/$file
         fi
     fi
-    echo "symlinking $PWD/$file to ~/.$file"
-    ln -s $PWD/$file ~/.$file
+    echo "symlinking $PWD/$file to ~/.$file" >&2
+    ln -s ~/.bash_profile_source/$file ~/.$file
 done
 
 if [ -d ~/.profile.d/ ]; then
    if [ ! -d ~/.bash_profile_backup/$date ]; then
       mkdir -p ~/.bash_profile_backup/$date
    fi
-   echo "backing up ~/.profile.d to ~/.bash_profile_backup/$date/profile.d"
+   echo "backing up ~/.profile.d to ~/.bash_profile_backup/$date/profile.d" >&2
    mv ~/.profile.d ~/.bash_profile_backup/$date/profile.d
-   ln -s $PWD/profile.d ~/.profile.d
+   ln -s ~/.bash_profile_source/profile.d ~/.profile.d
 fi
 
 if [ -d ~/bin ]
-  then cp -d bin/* ~/bin
-else cp -rd bin ~/bin
+  then cp -d ~/.bash_profile_source/bin/* ~/bin
+else cp -rd ~/.bash_profile_source/bin ~/bin
 fi
 

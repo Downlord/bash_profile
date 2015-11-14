@@ -3,17 +3,6 @@
 # exists.
 # see /usr/share/doc/bash/examples/startup-files for examples.
 # the files are located in the bash-doc package.
-
-#allow users to specify their own ~/.profile
-if [ -f ~/.profile.`whoami` ]; then
-    source ~/.profile.`whoami`
-fi
-
-#allow users to specify additional profiles from ~/.profile.d
-if [ -d ~/.profile.d/ ]; then
-   source ~/.profile.d/*
-fi
-
 #ensure our ssh-agent is running and that our keys are added
 eval `ssh-agent` > /dev/null
 keys=`ssh-add -l > /dev/null ; echo $?`
@@ -41,5 +30,17 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
+
+
+#allow users to specify their own ~/.profile
+if [ -f ~/.profile.`whoami` ]; then
+    source ~/.profile.`whoami`
+fi
+
+#allow users to specify additional profiles from ~/.profile.d
+ls -1 ~/.profile.d/* | while read myProfile
+do
+   source $myProfile
+done
 
 

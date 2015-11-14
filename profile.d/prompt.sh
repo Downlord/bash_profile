@@ -21,4 +21,4 @@ else
                 export PS1='\e[1;34m[\e[0;34m\h\e[1;34m]\e[1;34m[\e[0;31m'${SHORTSTAGE}'\e[1;34m]> \e[0m'
         fi
 fi
-
+shopt -s checkwinsize

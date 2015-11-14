@@ -12,3 +12,8 @@ case $TERM in
     ;;
 esac
 export PS1="${SCREENTITLE}\[\e[1;34m\][\[\e[0;34m\]\h-${HOSTSTAGE}\[\e[1;34m\]]\[\e[1;34m\][\[\e[0;32m\]\w\[\e[1;34m\]]> \[\e[0m\]"
+
+
+export HOSTSTAGE=${INFLUXDB_HOST/*\./}
+export PS1='[\[\033[1;31m\]\u\[\033[0m\]@\h'-${HOSTSTAGE}' \W]\$ '
+export PROMPT_COMMAND='echo -ne "\033]0;${HOSTNAME}-${HOSTSTAGE}\007"'

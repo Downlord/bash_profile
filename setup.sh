@@ -3,7 +3,7 @@
 
 
 cd ~/
-if [ -d ~/.bash_profile/ ]; then
+if [ -d ~/bash_profile/ ]; then
    if [ -d /.bash_profile_source ]; then
       rm -rf ~/.bash_profile_source
    fi
@@ -32,7 +32,7 @@ for file in $files; do
     ln -s ~/.bash_profile_source/$file ~/.$file
 done
 
-if [ -d ~/.profile.d/ ]; then
+if [ -d ~/.profile.d ]; then
    if [ ! -d ~/.bash_profile_backup/$date ]; then
       mkdir -p ~/.bash_profile_backup/$date
    fi

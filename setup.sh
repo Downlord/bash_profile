@@ -24,9 +24,6 @@ for file in $files; do
       		if [ ! -d ~/.bash_profile_backup/$date ]; then
               mkdir -p ~/.bash_profile_backup/$date
           fi
-      		if [ ! -d ~/.bash_profile/ ]; then
-          		mkdir -p ~/.bash_profile/
-          fi
           echo "backing up ~/.$file to ~/.bash_profile_backup/$date/$file" >&2
           mv ~/.$file ~/.bash_profile_backup/$date/$file
         fi

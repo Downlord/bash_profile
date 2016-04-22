@@ -3,7 +3,7 @@
 
 
 cd ~/
-if [ -d ~/bash_profile/ ]; then
+if [ -d ~/.bash_profile/ ]; then
    if [ -d /.bash_profile_source ]; then
       rm -rf ~/.bash_profile_source
    fi

@@ -13,7 +13,7 @@ if [ -d ~/bash_profile/ ]; then
 fi
 
 #files="bash bash_profile bash_login bash_aliases bashrc profile bash_completion bash_logout profile.d"
-files="bash_aliases bashrc profile bash_profile"
+files="bash_aliases bashrc profile bash_profile vimrc.local"
 date=`date +"%Y%m%d"`
 
 for file in $files; do

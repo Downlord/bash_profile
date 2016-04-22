@@ -1,3 +1,3 @@
 #!/bin/bash
 
-setterm -regtabs 2
+/usr/sbin/setterm -regtabs 2 2>>/dev/null

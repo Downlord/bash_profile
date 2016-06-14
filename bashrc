@@ -122,3 +122,7 @@ do
    source $myProfile
 done
 
+
+source /etc/profile.d/cmd-openrc
+. /etc/profile.d/amadeus_proxy.sh off
+cd /opt/AMADEUS/acs-infrastructure-templates

@@ -1,0 +1,44 @@
+[user]
+	name = Helge LAURISCH
+	email = Helge.LAURISCH@amadeus.com
+	pass = Gis!Unix11
+	password = Gis!Unix11
+[credential]
+	helper = cache --timeout=2628000
+[push]
+	default = tracking
+[color]
+	ui = auto
+[advice]
+	pushNonFastForward = false
+	statusHints = false
+[core]
+	whitespace = trailing-space,space-before-tab
+	excludesfile = ~/.gitignore
+[diff]
+	renames = copies
+	mnemonicprefix = true
+[branch]
+	autosetupmerge = true
+[rerere]
+	enabled = true
+[merge]
+	stat = true
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	type = cat-file -t
+	dump = cat-file -p
+	ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+	b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
+	la = "!git config -l | grep alias | cut -c 7-"
+	save = !git add -A && git commit -m 'SAVEPOINT'
+	wip = !git add -u && git commit -m "WIP" 
+	undo = reset HEAD~1 --mixed
+	amend = commit -a --amend
+	wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
+	bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f"
+	bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"

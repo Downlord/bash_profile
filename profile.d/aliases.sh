@@ -130,3 +130,7 @@ lsnap ()
 function settitle() { echo -ne "\e]2;$@\a\e]1;$@\a"; }
 function cd() { command cd "$@"; settitle $(hostname -s|tr a-z A-Z)":"$(pwd -P); }
 function ssh() { settitle "$(echo $@|tr a-z A-Z)"; command ssh "$@"; settitle $(hostname -s|tr a-z A-Z)":"$(pwd -P); }
+alias git_pushit="git add $@; git commit -m 'minor updates'; git push -u origin "
+alias git_pushall="git add --all; git commit -m 'minor updates'; git push -u origin "
+alias git_clone_branch_push_pr="git clone $1; git checkout -b $2; git status; echo;echo; echo now do git_pushall; git push -u origin "
+alias git_pullall="git pull --rebase --prune; git submodule update --init --recursive"

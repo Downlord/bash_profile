@@ -13,7 +13,7 @@ if [ -d ~/bash_profile/ ]; then
 fi
 
 #files="bash bash_profile bash_login bash_aliases bashrc profile bash_completion bash_logout profile.d"
-files="bash_aliases bashrc profile"
+files="bash_aliases bashrc profile bash_profile vimrc.local"
 date=`date +"%Y%m%d"`
 
 for file in $files; do
@@ -21,21 +21,18 @@ for file in $files; do
         unlink ~/.$file
     else
         if [ -f ~/.$file ]; then
-      if [ ! -d ~/.bash_profile_backup/$date ]; then
-               mkdir -p ~/.bash_profile_backup/$date
-            fi
-      if [ ! -d ~/.bash_profile/ ]; then
-          mkdir -p ~/.bash_profile/
-            fi
-            echo "backing up ~/.$file to ~/.bash_profile_backup/$date/$file" >&2
-            mv ~/.$file ~/.bash_profile_backup/$date/$file
+      		if [ ! -d ~/.bash_profile_backup/$date ]; then
+              mkdir -p ~/.bash_profile_backup/$date
+          fi
+          echo "backing up ~/.$file to ~/.bash_profile_backup/$date/$file" >&2
+          mv ~/.$file ~/.bash_profile_backup/$date/$file
         fi
     fi
     echo "symlinking $PWD/$file to ~/.$file" >&2
     ln -s ~/.bash_profile_source/$file ~/.$file
 done
 
-if [ -d ~/.profile.d/ ]; then
+if [ -d ~/.profile.d ]; then
    if [ ! -d ~/.bash_profile_backup/$date ]; then
       mkdir -p ~/.bash_profile_backup/$date
    fi

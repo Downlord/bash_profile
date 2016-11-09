@@ -123,6 +123,8 @@ do
 done
 
 
-source /etc/profile.d/cmd-openrc
-. /etc/profile.d/amadeus_proxy.sh off
-cd /opt/AMADEUS/acs-infrastructure-templates
+if [ -f /etc/profile.d/cmd-openrc ]; then
+	source /etc/profile.d/cmd-openrc
+	. /etc/profile.d/amadeus_proxy.sh off
+	cd /opt/AMADEUS/acs-infrastructure-templates
+fi

@@ -17,9 +17,9 @@ alias h='history'
 alias hg='history | grep'
 alias psg='/bin/ps auxwww | grep -v grep | grep'
 alias ng='netstat -tulpen|grep -i'
-alias kcon="/opt/kafka/bin/kafka-console-consumer.sh --zookeeper $ZOOKEEPER_URI --topic $@"
-alias kprod="/opt/kafka/bin/kafka-console-producer.sh --broker-list $KAFKA_BROKER_LIST --topic $@"
-alias ktopic="/opt/kafka/bin/kafka-topics.sh --zookeeper $ZOOKEEPER_URI $@"
+alias kcon="kafka-console-consumer.sh --zookeeper $ZOOKEEPER_URI --topic $@"
+alias kprod="kafka-console-producer.sh --broker-list $KAFKA_BROKER_LIST --topic $@"
+alias ktopic="kafka-topics.sh --zookeeper $ZOOKEEPER_URI $@"
 alias ip_pub="facter -p ec2_public_ipv4"
 alias ip_priv="facter -p ipaddress"
 

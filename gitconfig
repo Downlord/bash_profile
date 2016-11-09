@@ -1,8 +1,6 @@
 [user]
-	name = Helge LAURISCH
-	email = Helge.LAURISCH@amadeus.com
-	pass = Gis!Unix11
-	password = Gis!Unix11
+	name = DownLord
+	email = DownLord@gmail.com
 [credential]
 	helper = cache --timeout=2628000
 [push]

@@ -117,7 +117,7 @@ alias ds='dstat -c --top-cpu -d --top-bio --top-latency -ndymlp 5 25'
 
 # strace 
 
-alias strace='strace -s1000 -q -a -f -e open,close,read,write,socket'
+#alias strace='strace -s1000 -q -a -f -e open,close,read,write,socket'
 
 lsnap ()
 {
